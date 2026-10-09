@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../constants/colors.dart';
 
 class AppButton extends StatelessWidget {
   final String label;
   final IconData? icon;
   final VoidCallback? onPressed;
   final String? url;
+  final Color? color;
 
   const AppButton({
     super.key,
@@ -13,6 +15,7 @@ class AppButton extends StatelessWidget {
     this.icon,
     this.onPressed,
     this.url,
+    this.color,
   });
 
   Future<void> _handlePressed() async {
@@ -33,8 +36,11 @@ class AppButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
 
-        onPressed: (onPressed != null) ? _handlePressed : null,
+        onPressed: _handlePressed,
         style: ElevatedButton.styleFrom(
+
+          backgroundColor: color ?? AppColors.primary,
+          foregroundColor: Colors.white,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),

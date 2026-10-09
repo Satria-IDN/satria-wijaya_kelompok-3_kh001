@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'theme/app_theme.dart';
+import 'constants/colors.dart';
 import 'widgets/buttons.dart';
 
 void main() {
@@ -28,6 +29,8 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Design System Demo'),
+        // WARNA 3: Accent di AppBar
+        backgroundColor: AppColors.accent,
       ),
 
       body: Padding(
@@ -35,27 +38,32 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // WARNA 1: Primary di Judul
             const Text(
               'Universitas Esa Unggul',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
+                color: AppColors.primary,
               ),
             ),
 
             const SizedBox(height: 12),
 
+            // WARNA 2: Secondary di Keterangan
             const Text(
-              'Tekan tombol di bawah untuk melihat lokasi kampus.',
+              'Tekan tombol di bawah untuk melihat tautan.',
+              style: TextStyle(
+                color: AppColors.secondary,
+              ),
             ),
 
             const SizedBox(height: 24),
 
-            AppButton(
-              label: 'Buka Google Maps',
-              icon: Icons.location_on,
-              url:
-              'https://www.google.com/maps/search/?api=1&query=Universitas+Esa+Unggul',
+            const AppButton(
+              label: 'Buka GitHub',
+              icon: Icons.code,
+              url: 'https://github.com/Satria-IDN',
             ),
 
             const SizedBox(height: 16),
